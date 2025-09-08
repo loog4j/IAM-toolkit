@@ -1,0 +1,56 @@
+{
+  "RotationSettings": {
+    "DefaultRotationDays": 90,
+    "CriticalKeyRotationDays": 30,
+    "WarningThresholdDays": 14,
+    "EnableAutomatedRotation": false,
+    "RequireApprovalForRotation": true
+  },
+  "KeyCategories": {
+    "Critical": {
+      "RotationDays": 30,
+      "WarningDays": 7,
+      "RequireApproval": true,
+      "AutoRotate": false
+    },
+    "High": {
+      "RotationDays": 60,
+      "WarningDays": 14,
+      "RequireApproval": true,
+      "AutoRotate": false
+    },
+    "Medium": {
+      "RotationDays": 90,
+      "WarningDays": 21,
+      "RequireApproval": false,
+      "AutoRotate": false
+    },
+    "Low": {
+      "RotationDays": 180,
+      "WarningDays": 30,
+      "RequireApproval": false,
+      "AutoRotate": false
+    }
+  },
+  "ServiceCategories": {
+    "AzureKeyVault": "Critical",
+    "ApplicationSecrets": "High",
+    "ServicePrincipals": "High",
+    "APIKeys": "Medium",
+    "DatabaseConnections": "Critical",
+    "StorageAccounts": "High"
+  },
+  "NotificationSettings": {
+    "SecurityTeamEmail": "security@company.com",
+    "DevOpsTeamEmail": "devops@company.com",
+    "SlackChannel": "#security-alerts",
+    "TeamsWebhook": "https://teams.webhook.url",
+    "EnableEmailNotifications": true,
+    "EnableSlackNotifications": true
+  },
+  "OutputPaths": {
+    "Reports": "./reports/",
+    "Logs": "./logs/",
+    "Schedules": "./schedules/"
+  }
+}

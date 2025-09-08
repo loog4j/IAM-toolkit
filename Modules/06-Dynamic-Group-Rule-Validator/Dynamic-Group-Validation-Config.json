@@ -1,0 +1,48 @@
+{
+  "ValidationSettings": {
+    "EnableSyntaxValidation": true,
+    "EnableLogicValidation": true,
+    "EnablePerformanceValidation": true,
+    "EnableSecurityValidation": true,
+    "MaxRuleComplexity": 10,
+    "MaxMembershipSize": 50000
+  },
+  "RulePatterns": {
+    "ProhibitedPatterns": [
+      ".*password.*",
+      ".*secret.*",
+      ".*confidential.*"
+    ],
+    "RequiredPatterns": [
+      "user\\.",
+      "device\\."
+    ],
+    "SecurityRisks": [
+      "user.mail -contains \"@\"",
+      "user.userPrincipalName -contains \"*\"",
+      "device.deviceOSType -eq \"*\""
+    ]
+  },
+  "PerformanceThresholds": {
+    "MaxAttributeChecks": 5,
+    "MaxLogicalOperators": 10,
+    "MaxStringComparisons": 8,
+    "WarnOnComplexRules": true
+  },
+  "ComplianceChecks": {
+    "RequireJustification": true,
+    "RequireApproval": true,
+    "DocumentChanges": true,
+    "AuditRuleChanges": true
+  },
+  "OutputPaths": {
+    "Reports": "./reports/",
+    "Logs": "./logs/",
+    "Validation": "./validation/"
+  },
+  "NotificationSettings": {
+    "SecurityTeamEmail": "security@company.com",
+    "AdminTeamEmail": "admins@company.com",
+    "EnableEmailNotifications": true
+  }
+}

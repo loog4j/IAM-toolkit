@@ -1,0 +1,6 @@
+UserPrincipalName,DisplayName,Department,Title,Manager,OfficeLocation,PhoneNumber,Action
+john.doe@company.com,John Doe,IT,Senior Engineer,jane.smith@company.com,Building A,555-1234,UPDATE
+jane.smith@company.com,Jane Smith,IT,IT Manager,,Building A,555-5678,UPDATE
+bob.wilson@company.com,Bob Wilson,Finance,Financial Analyst,mary.jones@company.com,Building B,555-9012,UPDATE
+mary.jones@company.com,Mary Jones,Finance,Finance Manager,,Building B,555-3456,UPDATE
+test.user@company.com,Test User,IT,Intern,john.doe@company.com,Building A,555-7890,CREATE

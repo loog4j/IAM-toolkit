@@ -1,0 +1,104 @@
+{
+  "RemediationSettings": {
+    "AutomatedRemediationEnabled": true,
+    "RequireApprovalForCritical": true,
+    "MaxAutomatedActions": 10,
+    "CooldownPeriodHours": 24,
+    "DryRunMode": false,
+    "EnableRealTimeMonitoring": true
+  },
+  "RiskThresholds": {
+    "Critical": 9,
+    "High": 7,
+    "Medium": 4,
+    "Low": 1
+  },
+  "RiskEventWeights": {
+    "maliciousIPAddress": 10,
+    "leakedCredentials": 10,
+    "malwareInfectedDeviceSignIn": 9,
+    "impossibleTravel": 8,
+    "unfamiliarFeatures": 7,
+    "anonymizedIPAddress": 6,
+    "suspiciousIPAddress": 8,
+    "newCountry": 5,
+    "unfamiliarSignInProperties": 4,
+    "passwordSpray": 6,
+    "suspiciousBrowser": 5
+  },
+  "ContextualFactors": {
+    "PrivilegedUser": 2,
+    "ExternalUser": 1,
+    "ServiceAccount": 3,
+    "RecentPasswordChange": -1,
+    "MFAEnabled": -2,
+    "ConditionalAccessCompliant": -1
+  },
+  "ResponseActions": {
+    "Critical": {
+      "BlockUser": true,
+      "RevokeAllSessions": true,
+      "RequirePasswordReset": true,
+      "RequireMFARegistration": true,
+      "NotifySecurityTeam": true,
+      "CreateIncident": true,
+      "DisableApplicationAccess": true,
+      "RemoveFromPrivilegedGroups": true
+    },
+    "High": {
+      "RequireMFA": true,
+      "RequirePasswordReset": true,
+      "LimitApplicationAccess": true,
+      "NotifyUser": true,
+      "NotifyManager": true,
+      "RevokeActiveSessions": true,
+      "CreateSecurityEvent": true
+    },
+    "Medium": {
+      "RequireMFA": true,
+      "LogSecurityEvent": true,
+      "NotifyUser": true,
+      "ScheduleReview": true,
+      "MonitorActivity": true
+    },
+    "Low": {
+      "LogSecurityEvent": true,
+      "MonitorActivity": true,
+      "ScheduleReview": false
+    }
+  },
+  "NotificationSettings": {
+    "SecurityTeamEmail": "security@company.com",
+    "IncidentWebhook": "https://company.webhook.url",
+    "SlackChannel": "#security-alerts",
+    "TeamsWebhook": "https://teams.webhook.url",
+    "EnableEmailNotifications": true,
+    "EnableSlackNotifications": true,
+    "EnableTeamsNotifications": true
+  },
+  "InvestigationSettings": {
+    "CollectSignInLogs": true,
+    "AnalyzeDeviceInfo": true,
+    "CheckIPReputation": true,
+    "CorrelateWithThreatIntel": true,
+    "GenerateTimeline": true,
+    "PreserveEvidence": true
+  },
+  "OutputPaths": {
+    "Reports": "./reports/",
+    "Logs": "./logs/",
+    "Incidents": "./incidents/",
+    "Evidence": "./evidence/"
+  },
+  "RetentionSettings": {
+    "LogRetentionDays": 90,
+    "IncidentRetentionDays": 365,
+    "EvidenceRetentionDays": 2555
+  },
+  "ComplianceSettings": {
+    "EnableAuditTrail": true,
+    "RequireJustification": true,
+    "EnableApprovalWorkflow": true,
+    "DocumentAllActions": true
+  }
+}

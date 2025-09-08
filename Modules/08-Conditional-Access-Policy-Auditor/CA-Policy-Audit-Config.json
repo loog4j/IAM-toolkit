@@ -1,0 +1,73 @@
+{
+  "LogPath": "./logs/",
+  "ReportPath": "./reports/",
+  "ExportFormats": ["JSON", "CSV", "HTML"],
+  "IncludeDisabledPolicies": true,
+  "PolicyAnalysis": {
+    "CheckForGaps": true,
+    "ValidateCompliance": true,
+    "IdentifyConflicts": true,
+    "AssessRiskLevel": true
+  },
+  "ComplianceChecks": {
+    "RequireMFAForAdmins": true,
+    "BlockLegacyAuth": true,
+    "RequireCompliantDevice": true,
+    "RequireApprovedApp": true,
+    "BlockHighRiskSignIns": true,
+    "RequirePasswordChange": true,
+    "BlockUnknownPlatforms": true
+  },
+  "RiskAssessment": {
+    "HighRiskConditions": [
+      "AllUsers",
+      "AllApplications",
+      "AnyLocation",
+      "AllDevicePlatforms"
+    ],
+    "CriticalApplications": [
+      "Office 365",
+      "Azure Management",
+      "Microsoft Admin Portals",
+      "Exchange Online",
+      "SharePoint Online",
+      "Microsoft Teams"
+    ],
+    "PrivilegedRoles": [
+      "Global Administrator",
+      "Privileged Role Administrator",
+      "Security Administrator",
+      "Conditional Access Administrator",
+      "Exchange Administrator",
+      "SharePoint Administrator"
+    ]
+  },
+  "SecurityBaselines": {
+    "MinimumPoliciesRequired": [
+      "Block legacy authentication",
+      "Require MFA for administrators",
+      "Require MFA for Azure management",
+      "Block access from untrusted locations"
+    ],
+    "RecommendedPolicies": [
+      "Require compliant devices",
+      "Require approved client apps",
+      "Block high-risk sign-ins",
+      "Require password change for high-risk users"
+    ]
+  },
+  "ReportSettings": {
+    "IncludePolicyDetails": true,
+    "IncludeRiskAnalysis": true,
+    "IncludeComplianceStatus": true,
+    "IncludeRecommendations": true,
+    "GroupByCategory": true,
+    "ShowDisabledPolicies": true
+  },
+  "AlertThresholds": {
+    "MaxHighRiskPolicies": 5,
+    "MinMFAPolicies": 3,
+    "MaxAllUsersPolicies": 2,
+    "RequiredBaselinePolicies": 4
+  }
+}

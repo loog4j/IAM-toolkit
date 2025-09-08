@@ -1,0 +1,32 @@
+{
+  "LogPath": "./logs/",
+  "BatchSize": 100,
+  "ThrottleDelay": 1000,
+  "SupportedActions": ["UPDATE", "CREATE", "DISABLE"],
+  "RequiredFields": ["UserPrincipalName", "Action"],
+  "AttributeMapping": {
+    "DisplayName": "DisplayName",
+    "Department": "Department", 
+    "Title": "Title",
+    "Manager": "Manager",
+    "OfficeLocation": "Office",
+    "PhoneNumber": "OfficePhone"
+  },
+  "ValidationRules": {
+    "UserPrincipalName": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+    "PhoneNumber": "^\\+?[1-9]\\d{1,14}$"
+  },
+  "EntraIdAttributeMapping": {
+    "DisplayName": "displayName",
+    "Department": "department",
+    "Title": "jobTitle",
+    "OfficeLocation": "officeLocation",
+    "PhoneNumber": "businessPhones"
+  },
+  "DefaultSettings": {
+    "ConfirmationRequired": true,
+    "BackupBeforeChanges": true,
+    "MaxRetries": 3,
+    "RetryDelay": 5000
+  }
+}

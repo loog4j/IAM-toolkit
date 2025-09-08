@@ -1,0 +1,107 @@
+{
+  "ReviewSettings": {
+    "IncludeDormantUsers": true,
+    "DormantThresholdDays": 90,
+    "AnalyzeSignInLogs": true,
+    "SignInLogDays": 30,
+    "IncludeNeverSignedIn": true,
+    "MaxGuestLifetimeDays": 365
+  },
+  "RiskCriteria": {
+    "HighRiskDomains": [
+      "gmail.com",
+      "yahoo.com",
+      "hotmail.com",
+      "outlook.com",
+      "protonmail.com",
+      "tempmail.org",
+      "10minutemail.com"
+    ],
+    "HighRiskCountries": ["CN", "RU", "KP", "IR", "SY", "CU"],
+    "PrivilegedRoles": [
+      "Global Administrator",
+      "Privileged Role Administrator",
+      "Security Administrator",
+      "User Administrator",
+      "Groups Administrator",
+      "Application Administrator",
+      "Cloud Application Administrator",
+      "Exchange Administrator",
+      "SharePoint Administrator",
+      "Teams Administrator"
+    ],
+    "SensitiveGroups": [
+      "Domain Admins",
+      "Enterprise Admins",
+      "Schema Admins",
+      "Administrators",
+      "Account Operators",
+      "Backup Operators",
+      "Server Operators"
+    ],
+    "SuspiciousPatterns": [
+      ".*admin.*",
+      ".*test.*",
+      ".*temp.*",
+      ".*service.*",
+      ".*bot.*"
+    ]
+  },
+  "ComplianceChecks": {
+    "RequireAccessReviews": true,
+    "RequireTermsOfUse": true,
+    "RequireConditionalAccess": true,
+    "RequireMFA": true,
+    "CheckInvitationSource": true,
+    "ValidateBusinessJustification": true
+  },
+  "RiskScoring": {
+    "Weights": {
+      "DormantAccount": 8,
+      "NeverSignedIn": 6,
+      "PrivilegedRole": 10,
+      "HighRiskDomain": 7,
+      "HighRiskCountry": 8,
+      "NoAccessReview": 6,
+      "NoMFA": 5,
+      "SuspiciousActivity": 9,
+      "OverPrivileged": 8,
+      "NoConditionalAccess": 4,
+      "PersonalEmail": 5,
+      "SuspiciousPattern": 7
+    },
+    "Thresholds": {
+      "Critical": 30,
+      "High": 20,
+      "Medium": 10,
+      "Low": 5
+    }
+  },
+  "ReportSettings": {
+    "Formats": ["HTML", "CSV", "JSON"],
+    "IncludeExecutiveSummary": true,
+    "IncludeDetailedFindings": true,
+    "IncludeRemediationSteps": true,
+    "GroupByRiskLevel": true,
+    "MaxUsersInSummary": 50
+  },
+  "OutputPaths": {
+    "Reports": "./reports/",
+    "Logs": "./logs/",
+    "Remediation": "./remediation/"
+  },
+  "AlertThresholds": {
+    "CriticalRiskUsers": 1,
+    "HighRiskUsers": 5,
+    "DormantUsersPercent": 20,
+    "PrivilegedGuestUsers": 0
+  },
+  "AnalysisScope": {
+    "IncludeApplicationAccess": true,
+    "IncludeGroupMemberships": true,
+    "IncludeDirectoryRoles": true,
+    "IncludeSharePointAccess": true,
+    "IncludeTeamsAccess": true,
+    "IncludeExchangeAccess": true
+  }
+}

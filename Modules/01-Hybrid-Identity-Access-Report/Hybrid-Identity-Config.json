@@ -1,0 +1,112 @@
+{
+  "IdentitySettings": {
+    "ActiveDirectoryDomain": "contoso.com",
+    "EntraIDTenantId": "your-tenant-id",
+    "IdentityCorrelationMethod": "userPrincipalName",
+    "FallbackCorrelationMethods": ["mail", "employeeId"],
+    "IncludeDisabledAccounts": false
+  },
+  "AnalysisScope": {
+    "IncludeNestedGroups": true,
+    "MaxNestingDepth": 10,
+    "IncludeApplicationRoles": true,
+    "IncludeAdministrativeRoles": true,
+    "AnalyzeConditionalAccess": true
+  },
+  "PrivilegedGroups": {
+    "ActiveDirectory": [
+      "Domain Admins",
+      "Enterprise Admins",
+      "Schema Admins",
+      "Administrators",
+      "Account Operators",
+      "Backup Operators",
+      "Server Operators",
+      "Print Operators",
+      "Group Policy Creator Owners",
+      "DNSAdmins",
+      "DnsAdmins"
+    ],
+    "EntraID": [
+      "Global Administrator",
+      "Privileged Role Administrator",
+      "Security Administrator",
+      "User Administrator",
+      "Groups Administrator",
+      "Application Administrator",
+      "Cloud Application Administrator",
+      "Authentication Administrator",
+      "Privileged Authentication Administrator",
+      "Exchange Administrator",
+      "SharePoint Administrator",
+      "Teams Administrator",
+      "Intune Administrator",
+      "Compliance Administrator",
+      "Security Reader",
+      "Global Reader"
+    ]
+  },
+  "RiskAssessment": {
+    "HighRiskIndicators": {
+      "PrivilegedGroupMembership": 10,
+      "AdminRoleAssignment": 9,
+      "ServiceAccountWithInteractiveLogon": 8,
+      "StalePrivilegedAccount": 7,
+      "ExcessiveApplicationPermissions": 6
+    },
+    "MediumRiskIndicators": {
+      "MultipleAdminRoles": 5,
+      "CrossTenantAccess": 4,
+      "UnusualGroupMemberships": 3,
+      "InconsistentAttributes": 2
+    },
+    "RiskThresholds": {
+      "Critical": 25,
+      "High": 15,
+      "Medium": 8,
+      "Low": 3
+    }
+  },
+  "ReportFormats": ["HTML", "JSON", "CSV"],
+  "OutputPath": "./IdentityReports",
+  "LogLevel": "INFO",
+  "Performance": {
+    "MaxConcurrentQueries": 5,
+    "QueryTimeoutSeconds": 30,
+    "RetryAttempts": 3,
+    "RetryDelaySeconds": 5
+  },
+  "SecuritySettings": {
+    "MaskSensitiveData": false,
+    "IncludePersonalInfo": true,
+    "AuditTrail": true,
+    "EncryptReports": false
+  },
+  "CustomAttributes": {
+    "ActiveDirectory": [
+      "extensionAttribute1",
+      "extensionAttribute2",
+      "extensionAttribute3",
+      "extensionAttribute4",
+      "extensionAttribute5"
+    ],
+    "EntraID": [
+      "extension_customAttribute1",
+      "extension_customAttribute2",
+      "extension_customAttribute3"
+    ]
+  },
+  "ComplianceChecks": {
+    "RequireMFAForPrivilegedUsers": true,
+    "CheckAccountExpiration": true,
+    "ValidatePasswordPolicy": true,
+    "CheckLastLogonAge": true,
+    "MaxDaysSinceLastLogon": 90
+  },
+  "NotificationSettings": {
+    "SendEmailReports": false,
+    "EmailRecipients": [],
+    "IncludeExecutiveSummary": true,
+    "AlertOnHighRisk": true
+  }
+}

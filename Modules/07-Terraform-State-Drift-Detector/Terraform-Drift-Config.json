@@ -1,0 +1,67 @@
+{
+  "TerraformSettings": {
+    "TerraformPath": "terraform",
+    "WorkingDirectory": "./terraform",
+    "StateBackend": "azurerm",
+    "EnableParallelism": true,
+    "MaxParallelism": 10
+  },
+  "DriftDetection": {
+    "EnableResourceDrift": true,
+    "EnableConfigurationDrift": true,
+    "EnableSecurityDrift": true,
+    "CheckInterval": "daily",
+    "IgnoreMinorChanges": false
+  },
+  "SecurityChecks": {
+    "CheckPublicAccess": true,
+    "CheckEncryption": true,
+    "CheckNetworkSecurity": true,
+    "CheckAccessControls": true,
+    "CheckCompliance": true
+  },
+  "ResourceTypes": {
+    "Critical": [
+      "azurerm_key_vault",
+      "azurerm_storage_account",
+      "azurerm_sql_server",
+      "azurerm_virtual_network"
+    ],
+    "High": [
+      "azurerm_resource_group",
+      "azurerm_network_security_group",
+      "azurerm_public_ip",
+      "azurerm_virtual_machine"
+    ],
+    "Medium": [
+      "azurerm_app_service",
+      "azurerm_function_app",
+      "azurerm_container_registry"
+    ]
+  },
+  "AlertThresholds": {
+    "CriticalDriftCount": 1,
+    "HighDriftCount": 3,
+    "SecurityViolationCount": 1,
+    "ConfigurationChangePercent": 10
+  },
+  "NotificationSettings": {
+    "SecurityTeamEmail": "security@company.com",
+    "InfraTeamEmail": "infrastructure@company.com",
+    "SlackChannel": "#infrastructure-alerts",
+    "EnableEmailNotifications": true,
+    "EnableSlackNotifications": true
+  },
+  "OutputPaths": {
+    "Reports": "./reports/",
+    "Logs": "./logs/",
+    "Plans": "./plans/",
+    "Backups": "./backups/"
+  },
+  "ComplianceFrameworks": [
+    "CIS",
+    "NIST",
+    "SOC2",
+    "ISO27001"
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "LogPath": "./logs/",
+  "ReportPath": "./reports/",
+  "ExportFormats": ["JSON", "CSV", "HTML"],
+  "HighRiskPermissions": [
+    "Directory.ReadWrite.All",
+    "Directory.AccessAsUser.All",
+    "Mail.ReadWrite.All",
+    "Files.ReadWrite.All",
+    "Sites.ReadWrite.All",
+    "User.ReadWrite.All",
+    "Group.ReadWrite.All",
+    "Application.ReadWrite.All",
+    "RoleManagement.ReadWrite.Directory",
+    "DeviceManagementConfiguration.ReadWrite.All",
+    "DeviceManagementManagedDevices.ReadWrite.All",
+    "Policy.ReadWrite.All",
+    "PrivilegedAccess.ReadWrite.AzureAD",
+    "SecurityEvents.ReadWrite.All",
+    "ThreatIndicators.ReadWrite.OwnedBy"
+  ],
+  "MediumRiskPermissions": [
+    "Directory.Read.All",
+    "User.Read.All",
+    "Group.Read.All",
+    "Mail.Read.All",
+    "Files.Read.All",
+    "Sites.Read.All",
+    "Calendars.ReadWrite",
+    "Contacts.ReadWrite",
+    "Tasks.ReadWrite"
+  ],
+  "SuspiciousPatterns": [
+    ".*password.*",
+    ".*secret.*",
+    ".*token.*",
+    ".*key.*",
+    ".*credential.*",
+    ".*auth.*"
+  ],
+  "ConsentAnalysis": {
+    "CheckUserConsent": true,
+    "CheckAdminConsent": true,
+    "IdentifyOrphanedApps": true,
+    "CheckLastUsed": true,
+    "AnalyzePublisherVerification": true,
+    "CheckMultiTenantApps": true
+  },
+  "AlertThresholds": {
+    "MaxHighRiskPermissions": 3,
+    "MaxMediumRiskPermissions": 10,
+    "DaysUnusedThreshold": 90,
+    "MaxUserConsentApps": 10,
+    "MinRiskScoreForAlert": 7
+  },
+  "RiskScoring": {
+    "HighRiskPermissionWeight": 10,
+    "MediumRiskPermissionWeight": 5,
+    "UnverifiedPublisherWeight": 3,
+    "ExternalTenantWeight": 2,
+    "UserConsentWeight": 2,
+    "UnusedAppWeight": 1
+  },
+  "ReportSettings": {
+    "IncludeExecutiveSummary": true,
+    "IncludeDetailedFindings": true,
+    "IncludeRecommendations": true,
+    "GroupByRiskLevel": true,
+    "MaxAppsInSummary": 20
+  }
+}
